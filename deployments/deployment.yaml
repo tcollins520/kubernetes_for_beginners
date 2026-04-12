@@ -5,17 +5,20 @@ metadata:
   labels:
     tier: frontend
     app: nginx
+# spec for the pod template on how the pod should look like
 spec:
-  selector:
-    matchLabels:
-      env: production
   replicas: 3
   template:
     metadata:
       labels:
         env: production
+    # spec for the name of the container and the image to use
     spec:
       containers:
       - name: nginx
         image: nginx
+  # spec for the selector to match the labels of the pod template
+  selector:
+    matchLabels:
+      env: production
   
