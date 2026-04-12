@@ -1,5 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
+# metadata for the deployment, including name and labels
 metadata:
   name: myapp-deployment
   labels:
@@ -18,6 +19,7 @@ spec:
       - name: nginx
         image: nginx
   # spec for the selector to match the labels of the pod template
+  # links the deployment to the pods it manages
   selector:
     matchLabels:
       env: production
