@@ -7,10 +7,11 @@ spec:
   type: NodePort
   # input port for the service, target port for the container, and node port for external access
   ports:
+    # targetPort is the port on the container where backend app is running, port is the port on the service, and nodePort is the port on each node to route to the service
     - targetPort: 80
       port: 80
       nodePort: 30008
   # selector to match the labels of the pods to route traffic to
-  # links the service to the pods it manages
+  # selector links the service to the pods it manages
   selector:
     env: production
